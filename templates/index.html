@@ -19,6 +19,29 @@
       content="Shree Dilsukh Transport Company provides reliable, safe and timely Full Truck Load, Part Load and Pan India transportation services from Bhiwadi, Rajasthan.">
 </head>
 
+<script>
+const revealElements = document.querySelectorAll(
+    '.booking-section, .services-section, .about-section, .contact-section, .service-card'
+);
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+revealElements.forEach((element) => {
+    element.classList.add('reveal');
+    observer.observe(element);
+});
+</script>
 
 <body>
 
