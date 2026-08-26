@@ -1,0 +1,887 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shree Dilsukh Transport Company | SDTC</title>
+    
+<link rel="icon" type="image/jpeg"
+      href="{{ url_for('static', filename='logo.jpg') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+<meta name="description"
+      content="Shree Dilsukh Transport Company provides reliable, safe and timely Full Truck Load, Part Load and Pan India transportation services from Bhiwadi, Rajasthan.">
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="top-header">
+
+    <div class="logo-area">
+
+        <div class="logo-box">
+
+            <img src="{{ url_for('static', filename='logo.jpg') }}"
+                 alt="Shree Dilsukh Transport Company Logo">
+
+        </div>
+
+
+        <div class="company-name">
+
+            <h1>SHREE DILSUKH</h1>
+
+            <h2>TRANSPORT COMPANY</h2>
+
+            <p>Reliable • Fast • Safe Logistics</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="header-right">
+
+<div class="phone-top">
+    📞
+    <a href="tel:9251056539">9251056539</a>
+    &nbsp; | &nbsp;
+    <a href="tel:9314056539">9314056539</a>
+    &nbsp; | &nbsp;
+    <a href="tel:9352710340">9352710340</a>
+</div>
+
+<div class="email-top">
+    ✉
+    <a href="mailto:vijaytransportcorporation@gmail.com">
+        vijaytransportcorporation@gmail.com
+    </a>
+</div>
+
+        <div class="timing-top">
+            🕘 9:00 AM – 8:30 PM
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav class="navbar">
+
+    <div class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#booking">Book a Truck</a>
+
+        <a href="#about">About Us</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+
+    <div class="hero-content">
+
+
+        <div class="hero-tag">
+            SHREE DILSUKH TRANSPORT COMPANY
+        </div>
+
+
+        <h2>
+            Moving Your Business
+            <span style="color: #163A6B !important;">
+                Forward, Together.
+            </span>
+        </h2>
+
+
+        <p>
+            End-to-end transport solutions across India.
+            <br>
+            Safe. Reliable. On Time. Every Time.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#booking" class="btn-primary">
+                🚚 Book a Truck
+            </a>
+
+            <a href="#contact" class="btn-secondary">
+                📞 Contact Us
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="hero-truck">
+
+        <img src="{{ url_for('static', filename='images/truck.jpg') }}"
+             alt="SDTC Transport Truck">
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= TRUST BAR ================= -->
+
+<section class="trust-bar">
+
+
+    <div class="trust-item">
+
+        <div class="trust-icon">
+            🛡️
+        </div>
+
+        <div>
+            <strong>Safe & Secure</strong>
+            <small>Your goods are in safe hands.</small>
+        </div>
+
+    </div>
+
+
+
+    <div class="trust-item">
+
+        <div class="trust-icon">
+            ⏱️
+        </div>
+
+        <div>
+            <strong>On Time Delivery</strong>
+            <small>Reliable & punctual service.</small>
+        </div>
+
+    </div>
+
+
+
+    <div class="trust-item">
+
+        <div class="trust-icon">
+            🇮🇳
+        </div>
+
+        <div>
+            <strong>Pan India Service</strong>
+            <small>We serve everywhere in India.</small>
+        </div>
+
+    </div>
+
+
+
+    <div class="trust-item">
+
+        <div class="trust-icon">
+            📞
+        </div>
+
+        <div>
+            <strong>24/7 Support</strong>
+            <small>Customer support available.</small>
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= BOOKING ================= -->
+
+<section id="booking" class="booking-section">
+
+
+    <div class="section-heading">
+
+        <span>
+            TRANSPORT REQUIREMENT
+        </span>
+
+        <h2>
+            Book Your Truck
+        </h2>
+
+        <p>
+            Enter your company and transportation requirements.
+        </p>
+
+    </div>
+
+
+
+    <!-- SUCCESS MESSAGE -->
+
+    {% if success %}
+
+    <div class="booking-success">
+
+        <strong>
+            ✅ Enquiry Submitted Successfully!
+        </strong>
+
+        <p>
+            Thank you{% if company_name %}, {{ company_name }}{% endif %}.
+            We have received your truck requirement.
+        </p>
+
+        <p>
+            Our team will contact you shortly.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+
+
+    <div class="booking-card">
+
+
+        <!-- FLASK FORM -->
+
+        <form action="{{ url_for('book') }}" method="POST">
+
+
+            <div class="form-grid">
+
+
+                <!-- COMPANY NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Company Name <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="company_name"
+                        placeholder="Enter company name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CONTACT PERSON -->
+
+                <div class="form-group">
+
+                    <label>
+                        Contact Person <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="contact_person"
+                        placeholder="Enter contact person name"
+                        required
+                    >
+
+                </div>
+
+
+
+
+
+                <!-- PICKUP -->
+
+                <div class="form-group">
+
+                    <label>
+                        Pickup Location <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="pickup"
+                        placeholder="Example: Bhiwadi, Rajasthan"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- DELIVERY -->
+
+                <div class="form-group">
+
+                    <label>
+                        Delivery Location <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="delivery"
+                        placeholder="Example: Delhi, Haryana, West Bengal..."
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- GOODS -->
+
+                <div class="form-group">
+
+                    <label>
+                        Goods / Material Details <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="goods"
+                        placeholder="Example: Electronics, Furniture, FMCG..."
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- TRUCK TYPE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Truck Type
+                    </label>
+
+                    <select name="truck_type">
+
+                        <option value="">
+                            Select Truck Type
+                        </option>
+
+                        <option value="14 Feet">
+                            14 Feet
+                        </option>
+
+                        <option value="17 Feet">
+                            17 Feet
+                        </option>
+
+                        <option value="19 Feet">
+                            19 Feet
+                        </option>
+
+                        <option value="20 Feet">
+                            20 Feet
+                        </option>
+
+                        <option value="22 Feet">
+                            22 Feet
+                        </option>
+
+                        <option value="24 Feet">
+                            24 Feet
+                        </option>
+
+                        <option value="32 Feet">
+                            32 Feet
+                        </option>
+
+                        <option value="Container">
+                            Container
+                        </option>
+
+                        <option value="Open Truck">
+                            Open Truck
+                        </option>
+
+                        <option value="Trailer">
+                            Trailer
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- WEIGHT -->
+
+                <div class="form-group">
+
+                    <label>
+                        Approx. Weight
+                    </label>
+
+                    <input
+                        type="text"
+                        name="weight"
+                        placeholder="Example: 10 Ton"
+                    >
+
+                </div>
+
+
+
+                <!-- DATE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Required Pickup Date
+                    </label>
+
+                    <input
+                        type="date"
+                        name="required_date"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ADDITIONAL REQUIREMENT -->
+
+            <div class="form-group full-width">
+
+                <label>
+                    Additional Requirement
+                </label>
+
+                <textarea
+                    name="message"
+                    rows="4"
+                    placeholder="Write any additional requirement here..."
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <div class="form-submit">
+
+                <button type="submit">
+                    🚚 Request a Truck
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services" class="services-section">
+
+
+    <div class="section-heading">
+
+        <span>
+            WHAT WE DO
+        </span>
+
+        <h2>
+            Our Transport Services
+        </h2>
+
+        <p>
+            Professional transportation solutions for your business.
+        </p>
+
+    </div>
+
+
+
+    <div class="service-cards">
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🚛
+            </div>
+
+            <h3>
+                Full Truck Load
+            </h3>
+
+            <p>
+                Reliable FTL transportation for large shipments
+                across India.
+            </p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                📦
+            </div>
+
+            <h3>
+                Part Load
+            </h3>
+
+            <p>
+                Cost-effective PTL solutions for smaller
+                shipments and businesses.
+            </p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🛡️
+            </div>
+
+            <h3>
+                Safe Transportation
+            </h3>
+
+            <p>
+                Your goods are handled carefully with safety
+                and reliability.
+            </p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🇮🇳
+            </div>
+
+            <h3>
+                Pan India Service
+            </h3>
+
+            <p>
+                Transportation services covering major
+                destinations across India.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="about-section">
+
+
+    <div class="about-content">
+
+
+        <div class="about-label">
+            ABOUT SDTC
+        </div>
+
+
+        <h2>
+            Reliable Transport.
+            <span>
+                Trusted Service.
+            </span>
+        </h2>
+
+
+        <p>
+            Shree Dilsukh Transport Company provides reliable
+            and professional transportation solutions for
+            businesses across India.
+        </p>
+
+
+        <p>
+            We focus on safe handling, timely delivery and
+            customer satisfaction. Whether you require a
+            Full Truck Load, Part Load or regular transportation,
+            our team is ready to support your business.
+        </p>
+
+
+
+        <div class="about-points">
+
+            <div>
+                ✓ Safe Transportation
+            </div>
+
+            <div>
+                ✓ On Time Delivery
+            </div>
+
+            <div>
+                ✓ Reliable Service
+            </div>
+
+            <div>
+                ✓ Customer Support
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact-section">
+
+
+    <div class="contact-container">
+
+
+        <div class="contact-info">
+
+
+            <div class="section-heading left">
+
+                <span>
+                    GET IN TOUCH
+                </span>
+
+                <h2>
+                    Contact Us
+                </h2>
+
+            </div>
+
+
+
+        <div class="contact-item">
+
+    <div class="contact-icon">
+        📞
+    </div>
+
+    <div>
+
+        <h3>Call Us</h3>
+
+        <p><a href="tel:9251056539">9251056539</a></p>
+        <p><a href="tel:9314056539">9314056539</a></p>
+        <p><a href="tel:9352710340">9352710340</a></p>
+
+    </div>
+
+</div>
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    ✉️
+                </div>
+
+                <div>
+
+<h3>
+    Email
+</h3>
+
+<p>
+    <a href="mailto:vijaytransportcorporation@gmail.com">
+        vijaytransportcorporation@gmail.com
+    </a>
+</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <h3>
+                        Office Address
+<p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Main+Dharuhera+Bhiwadi+Road+Near+MPS+School+Bhiwadi+Alwar+301019+Rajasthan"
+       target="_blank">
+        Main Dharuhera - Bhiwadi Road,
+        Near MPS School, Bhiwadi,
+        Alwar - 301019 (Rajasthan)
+    </a>
+</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    🕘
+                </div>
+
+                <div>
+
+                    <h3>
+                        Business Hours
+                    </h3>
+
+                    <p>
+                        9:00 AM – 8:30 PM
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="contact-card">
+
+
+            <div class="mini-logo">
+
+                <img
+                    src="{{ url_for('static', filename='logo.jpg') }}"
+                    alt="SDTC Logo"
+                >
+
+            </div>
+
+
+            <h3>
+                Ready to Move Your Goods?
+            </h3>
+
+
+            <p>
+                Contact us today for reliable and safe
+                transportation solutions.
+            </p>
+
+
+            <a href="#booking" class="btn-primary">
+                🚚 Book a Truck
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+
+    <div class="footer-logo">
+        SDTC
+    </div>
+
+
+    <h3>
+        SHREE DILSUKH TRANSPORT COMPANY
+    </h3>
+
+
+    <p>
+        Reliable • Fast • Safe Logistics
+    </p>
+
+
+    <div class="footer-line"></div>
+
+
+    <p class="copyright">
+        © 2026 Shree Dilsukh Transport Company.
+        All Rights Reserved.
+    </p>
+
+
+</footer>
+
+<a href="https://wa.me/919251056539?text=Hello%20Shree%20Dilsukh%20Transport%2C%20I%20want%20to%20book%20a%20truck."
+   class="whatsapp-float"
+   target="_blank">
+    WhatsApp
+</a>
+
+</body>
+
+</html>
