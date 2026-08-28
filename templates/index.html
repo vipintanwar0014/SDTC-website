@@ -1,119 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Shree Dilsukh Transport Company | SDTC</title>
-
-    <meta
-        name="description"
-        content="Shree Dilsukh Transport Company provides reliable, safe and timely Full Truck Load, Part Load and Pan India transportation services from Bhiwadi, Rajasthan."
-    >
-
-    <link
-        rel="icon"
-        type="image/jpeg"
-        href="{{ url_for('static', filename='logo.jpg') }}"
-    >
-
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-        <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      
-    >
+    <title>Shree Dilsukh Transport Company</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 
     <!-- ================= HEADER ================= -->
     <header class="top-header">
+        <div class="brand-area">
+            <img
+                src="{{ url_for('static', filename='images/logo.png') }}"
+                alt="SDTC Logo"
+                class="header-logo"
+            >
 
-        <div class="logo-area">
-            <div class="logo-box">
-                <img
-                    src="{{ url_for('static', filename='logo.jpg') }}"
-                    alt="Shree Dilsukh Transport Company Logo"
-                >
-            </div>
-
-            <div class="company-name">
+            <div class="brand-copy">
                 <h1>SHREE DILSUKH</h1>
                 <h2>TRANSPORT COMPANY</h2>
                 <p>Reliable • Fast • Safe Logistics</p>
             </div>
         </div>
 
-        <div class="header-right">
+        <div class="header-contact">
 
-            <div class="phone-top">
-                📞
-                <a href="tel:9251056539">9251056539</a>
-                &nbsp; | &nbsp;
-                <a href="tel:9314056539">9314056539</a>
-                &nbsp; | &nbsp;
-                <a href="tel:9352710340">9352710340</a>
+            <div class="header-contact-row">
+                <span class="header-contact-icon">📞</span>
+
+                <div class="header-links">
+                    <a href="tel:+919251056539">9251056539</a>
+                    <span>|</span>
+                    <a href="tel:+919314056539">9314056539</a>
+                    <span>|</span>
+                    <a href="tel:+919352710340">9352710340</a>
+                </div>
             </div>
 
-            <div class="email-top">
-                ✉
+            <div class="header-contact-row">
+                <span class="header-contact-icon">✉️</span>
                 <a href="mailto:vijaytransportcorporation@gmail.com">
                     vijaytransportcorporation@gmail.com
                 </a>
             </div>
 
-            <div class="timing-top">
-                🕘 9:00 AM – 8:30 PM
+            <div class="header-contact-row">
+                <span class="header-contact-icon">🕘</span>
+                <span>9:00 AM – 8:30 PM</span>
             </div>
 
         </div>
     </header>
 
 
-    <!-- ================= NAVIGATION ================= -->
+    <!-- ================= NAVBAR ================= -->
     <nav class="navbar">
 
-<button
-    class="menu-toggle"
-    id="menuToggle"
-    type="button"
-    aria-label="Open navigation menu"
-    aria-expanded="false"
-    aria-controls="mainNavLinks"
->
-    <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 7H20"></path>
-        <path d="M4 12H20"></path>
-        <path d="M4 17H20"></path>
-    </svg>
-</button>
-        <div class="nav-links" id="mainNavLinks">
-            <a href="#home">Home</a>
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="#home" class="nav-home-icon" aria-label="Home">⌂</a>
+            <a href="#home" class="active">Home</a>
             <a href="#services">Services</a>
             <a href="#booking">Book a Truck</a>
             <a href="#about">About Us</a>
             <a href="#contact">Contact</a>
+
         </div>
+
+        <a
+            class="whatsapp-btn"
+            href="https://wa.me/919251056539?text=Hello%20Shree%20Dilsukh%20Transport%2C%20I%20want%20to%20book%20a%20truck."
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <svg viewBox="0 0 32 32" aria-hidden="true" class="whatsapp-svg">
+                <path fill="currentColor" d="M16 3C8.82 3 3 8.82 3 16c0 2.31.61 4.57 1.77 6.56L3 29l6.63-1.74A12.94 12.94 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Zm0 23.64c-2.06 0-4.08-.55-5.84-1.58l-.42-.25-3.93 1.03 1.05-3.83-.27-.43A10.57 10.57 0 0 1 5.36 16C5.36 10.13 10.13 5.36 16 5.36S26.64 10.13 26.64 16 21.87 26.64 16 26.64Zm5.83-7.97c-.32-.16-1.9-.94-2.19-1.05-.29-.11-.5-.16-.71.16-.21.32-.82 1.05-1 1.27-.18.21-.37.24-.69.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.58-1.88-1.76-2.2-.18-.32-.02-.49.14-.65.14-.14.32-.37.47-.55.16-.18.21-.32.32-.53.11-.21.05-.4-.03-.55-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.55.08-.84.4-.29.32-1.1 1.08-1.1 2.63s1.13 3.05 1.29 3.26c.16.21 2.23 3.4 5.4 4.77.75.32 1.34.52 1.8.66.76.24 1.45.21 2 .13.61-.09 1.9-.78 2.17-1.53.26-.75.26-1.4.18-1.53-.08-.13-.29-.21-.61-.37Z"/>
+            </svg>
+            <span>WhatsApp</span>
+        </a>
 
     </nav>
 
 
-    <!-- ================= HERO ================= -->
+    <!-- ================= HOME / HERO ================= -->
     <section id="home" class="hero">
+
+        <div class="hero-image"></div>
+        <div class="hero-overlay"></div>
 
         <div class="hero-content">
 
-            <div class="hero-tag">
+            <div class="hero-kicker">
                 SHREE DILSUKH TRANSPORT COMPANY
             </div>
 
-            <h2>
+            <h1>
                 Moving Your Business
                 <span>Forward, Together.</span>
-            </h2>
+            </h1>
 
             <p>
                 End-to-end transport solutions across India.
@@ -121,212 +115,17 @@
                 Safe. Reliable. On Time. Every Time.
             </p>
 
-            <div class="hero-buttons">
-                <a href="#booking" class="btn-primary">
+            <div class="hero-actions">
+
+                <a href="#booking" class="btn btn-primary">
                     🚚 Book a Truck
                 </a>
 
-                <a href="#contact" class="btn-secondary">
+                <a href="#contact" class="btn btn-secondary">
                     📞 Contact Us
                 </a>
+
             </div>
-
-        </div>
-
-        <div class="hero-truck">
-            <img
-                src="{{ url_for('static', filename='images/truck.jpg') }}"
-                alt="SDTC Transport Truck"
-            >
-        </div>
-
-    </section>
-
-
-    <!-- ================= TRUST BAR ================= -->
-    <section class="trust-bar">
-
-        <div class="trust-item">
-            <div class="trust-icon">🛡️</div>
-            <div>
-                <strong>Safe &amp; Secure</strong>
-                <small>Your goods are in safe hands.</small>
-            </div>
-        </div>
-
-        <div class="trust-item">
-            <div class="trust-icon">⏱️</div>
-            <div>
-                <strong>On Time Delivery</strong>
-                <small>Reliable &amp; punctual service.</small>
-            </div>
-        </div>
-
-        <div class="trust-item">
-            <div class="trust-icon">🇮🇳</div>
-            <div>
-                <strong>Pan India Service</strong>
-                <small>We serve everywhere in India.</small>
-            </div>
-        </div>
-
-        <div class="trust-item">
-            <div class="trust-icon">📞</div>
-            <div>
-                <strong>24/7 Support</strong>
-                <small>Customer support available.</small>
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- ================= BOOKING ================= -->
-    <section id="booking" class="booking-section">
-
-        <div class="section-heading">
-            <span>TRANSPORT REQUIREMENT</span>
-            <h2>Book Your Truck</h2>
-            <p>Enter your company and transportation requirements.</p>
-        </div>
-
-        {% if success %}
-        <div class="booking-success">
-            <strong>✅ Enquiry Submitted Successfully!</strong>
-            <p>
-                Thank you{% if company_name %}, {{ company_name }}{% endif %}.
-                We have received your truck requirement.
-            </p>
-            <p>Our team will contact you shortly.</p>
-        </div>
-        {% endif %}
-
-        <div class="booking-card">
-
-            <form action="{{ url_for('book') }}" method="POST">
-
-                <div class="form-grid">
-
-                    <div class="form-group">
-                        <label for="company_name">
-                            Company Name <span>*</span>
-                        </label>
-                        <input
-                            id="company_name"
-                            type="text"
-                            name="company_name"
-                            placeholder="Enter company name"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact_person">
-                            Contact Person <span>*</span>
-                        </label>
-                        <input
-                            id="contact_person"
-                            type="text"
-                            name="contact_person"
-                            placeholder="Enter contact person name"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="pickup">
-                            Pickup Location <span>*</span>
-                        </label>
-                        <input
-                            id="pickup"
-                            type="text"
-                            name="pickup"
-                            placeholder="Example: Bhiwadi, Rajasthan"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="delivery">
-                            Delivery Location <span>*</span>
-                        </label>
-                        <input
-                            id="delivery"
-                            type="text"
-                            name="delivery"
-                            placeholder="Example: Delhi, Haryana, West Bengal..."
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="goods">
-                            Goods / Material Details <span>*</span>
-                        </label>
-                        <input
-                            id="goods"
-                            type="text"
-                            name="goods"
-                            placeholder="Example: Electronics, Furniture, FMCG..."
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="truck_type">Truck Type</label>
-                        <select id="truck_type" name="truck_type">
-                            <option value="">Select Truck Type</option>
-                            <option value="14 Feet">14 Feet</option>
-                            <option value="17 Feet">17 Feet</option>
-                            <option value="19 Feet">19 Feet</option>
-                            <option value="20 Feet">20 Feet</option>
-                            <option value="22 Feet">22 Feet</option>
-                            <option value="24 Feet">24 Feet</option>
-                            <option value="32 Feet">32 Feet</option>
-                            <option value="Container">Container</option>
-                            <option value="Open Truck">Open Truck</option>
-                            <option value="Trailer">Trailer</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="weight">Approx. Weight</label>
-                        <input
-                            id="weight"
-                            type="text"
-                            name="weight"
-                            placeholder="Example: 10 Ton"
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="required_date">Required Pickup Date</label>
-                        <input
-                            id="required_date"
-                            type="date"
-                            name="required_date"
-                        >
-                    </div>
-
-                </div>
-
-                <div class="form-group full-width">
-                    <label for="message">Additional Requirement</label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="4"
-                        placeholder="Write any additional requirement here..."
-                    ></textarea>
-                </div>
-
-                <div class="form-submit">
-                    <button type="submit">
-                        🚚 Request a Truck
-                    </button>
-                </div>
-
-            </form>
 
         </div>
 
@@ -342,40 +141,140 @@
             <p>Professional transportation solutions for your business.</p>
         </div>
 
-        <div class="service-cards">
+        <div class="services-grid">
 
-            <div class="service-card">
-                <div class="service-icon">🚛</div>
+            <article class="service-card">
+                <div class="service-icon">🚚</div>
                 <h3>Full Truck Load</h3>
-                <p>
-                    Reliable FTL transportation for large shipments across India.
-                </p>
-            </div>
+                <p>Reliable FTL transportation for large shipments across India.</p>
+            </article>
 
-            <div class="service-card">
+            <article class="service-card">
                 <div class="service-icon">📦</div>
                 <h3>Part Load</h3>
-                <p>
-                    Cost-effective PTL solutions for smaller shipments and businesses.
-                </p>
-            </div>
+                <p>Cost-effective PTL solutions for smaller shipments and businesses.</p>
+            </article>
 
-            <div class="service-card">
+            <article class="service-card">
                 <div class="service-icon">🛡️</div>
                 <h3>Safe Transportation</h3>
-                <p>
-                    Your goods are handled carefully with safety and reliability.
-                </p>
-            </div>
+                <p>Your goods are handled carefully with safety and reliability.</p>
+            </article>
 
-            <div class="service-card">
-                <div class="service-icon">🇮🇳</div>
+            <article class="service-card">
+                <div class="service-icon service-icon-text">IN</div>
                 <h3>Pan India Service</h3>
-                <p>
-                    Transportation services covering major destinations across India.
-                </p>
+                <p>Transportation services covering major destinations across India.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BOOK YOUR TRUCK ================= -->
+    <section id="booking" class="booking-section">
+
+        <div class="section-heading">
+            <span>TRANSPORT REQUIREMENT</span>
+            <h2>Book Your Truck</h2>
+            <p>Enter your company and transportation requirements.</p>
+        </div>
+
+        <form
+            id="bookingForm"
+            action="{{ url_for('book') }}"
+            method="POST"
+            class="booking-form"
+        >
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="company_name">Company Name *</label>
+                    <input id="company_name" name="company_name" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact_person">Contact Person *</label>
+                    <input id="contact_person" name="contact_person" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pickup">Pickup Location *</label>
+                    <input id="pickup" name="pickup" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="delivery">Delivery Location *</label>
+                    <input id="delivery" name="delivery" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="goods">Goods / Material Details *</label>
+                    <input id="goods" name="goods" type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="truck_type">Truck Type</label>
+                    <select id="truck_type" name="truck_type">
+                        <option value="">Select Truck Type</option>
+                        <option>14 Feet</option>
+                        <option>17 Feet</option>
+                        <option>19 Feet</option>
+                        <option>20 Feet</option>
+                        <option>22 Feet</option>
+                        <option>24 Feet</option>
+                        <option>32 Feet</option>
+                        <option>Container</option>
+                        <option>Open Truck</option>
+                        <option>Trailer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">Approx. Weight</label>
+                    <input id="weight" name="weight" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="required_date">Required Pickup Date</label>
+                    <input id="required_date" name="required_date" type="date">
+                </div>
+
             </div>
 
+            <div class="form-group form-full">
+                <label for="message">Additional Requirement</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Request a Truck
+            </button>
+
+        </form>
+
+        <!-- ================= BOOKING SUCCESS POPUP ================= -->
+        <div id="successPopup" class="success-popup">
+            <div class="success-popup-card">
+                <div class="success-icon">✓</div>
+
+                <h3>Thank You!</h3>
+
+                <p>
+                    Your truck request has been submitted successfully.
+                    Our team will contact you shortly.
+                </p>
+
+                <button
+                    type="button"
+                    id="closePopup"
+                    class="popup-close-btn"
+                >
+                    Done
+                </button>
+            </div>
         </div>
 
     </section>
@@ -384,26 +283,18 @@
     <!-- ================= ABOUT ================= -->
     <section id="about" class="about-section">
 
-        <div class="about-content">
+        <div class="about-inner">
 
-            <div class="about-label">
-                ABOUT SDTC
-            </div>
+            <span>ABOUT SDTC</span>
 
             <h2>
                 Reliable Transport.
-                <span>Trusted Service.</span>
+                <em>Trusted Service.</em>
             </h2>
 
             <p>
                 Shree Dilsukh Transport Company provides reliable and professional
                 transportation solutions for businesses across India.
-            </p>
-
-            <p>
-                We focus on safe handling, timely delivery and customer satisfaction.
-                Whether you require a Full Truck Load, Part Load or regular
-                transportation, our team is ready to support your business.
             </p>
 
             <div class="about-points">
@@ -418,31 +309,39 @@
     </section>
 
 
-    <!-- ================= CONTACT ================= -->
+    <!-- ================= CONTACT US ================= -->
     <section id="contact" class="contact-section">
 
-        <div class="contact-container">
+        <div class="contact-grid">
 
+            <!-- LEFT -->
             <div class="contact-info">
 
-                <div class="section-heading left">
+                <div class="contact-heading">
                     <span>GET IN TOUCH</span>
                     <h2>Contact Us</h2>
                 </div>
 
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
+                <div class="contact-row">
+
+                    <div class="contact-circle">📞</div>
 
                     <div>
                         <h3>Call Us</h3>
-                        <p><a href="tel:9251056539">9251056539</a></p>
-                        <p><a href="tel:9314056539">9314056539</a></p>
-                        <p><a href="tel:9352710340">9352710340</a></p>
+                        <p>
+                            <a href="tel:+919251056539">9251056539</a>
+                            <br>
+                            <a href="tel:+919314056539">9314056539</a>
+                            <br>
+                            <a href="tel:+919352710340">9352710340</a>
+                        </p>
                     </div>
+
                 </div>
 
-                <div class="contact-item">
-                    <div class="contact-icon">✉️</div>
+                <div class="contact-row">
+
+                    <div class="contact-circle">✉️</div>
 
                     <div>
                         <h3>Email</h3>
@@ -452,13 +351,16 @@
                             </a>
                         </p>
                     </div>
+
                 </div>
 
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
+                <div class="contact-row">
+
+                    <div class="contact-circle">📍</div>
 
                     <div>
                         <h3>Office Address</h3>
+
                         <p>
                             <a
                                 href="https://www.google.com/maps/search/?api=1&query=Main+Dharuhera+Bhiwadi+Road+Near+MPS+School+Bhiwadi+Alwar+301019+Rajasthan"
@@ -466,33 +368,37 @@
                                 rel="noopener noreferrer"
                             >
                                 Main Dharuhera - Bhiwadi Road,
+                                <br>
                                 Near MPS School, Bhiwadi,
+                                <br>
                                 Alwar - 301019 (Rajasthan)
                             </a>
                         </p>
                     </div>
+
                 </div>
 
-                <div class="contact-item">
-                    <div class="contact-icon">🕘</div>
+                <div class="contact-row">
+
+                    <div class="contact-circle">🕘</div>
 
                     <div>
                         <h3>Business Hours</h3>
                         <p>9:00 AM – 8:30 PM</p>
                     </div>
+
                 </div>
 
             </div>
 
 
+            <!-- RIGHT -->
             <div class="contact-card">
 
-                <div class="mini-logo">
-                    <img
-                        src="{{ url_for('static', filename='logo.jpg') }}"
-                        alt="SDTC Logo"
-                    >
-                </div>
+                <img
+                    src="{{ url_for('static', filename='images/logo.png') }}"
+                    alt="SDTC Logo"
+                >
 
                 <h3>Ready to Move Your Goods?</h3>
 
@@ -500,8 +406,8 @@
                     Contact us today for reliable and safe transportation solutions.
                 </p>
 
-                <a href="#booking" class="btn-primary">
-                    🚚 Book a Truck
+                <a href="#booking" class="btn btn-primary">
+                    Book a Truck
                 </a>
 
             </div>
@@ -509,94 +415,107 @@
         </div>
 
     </section>
+
+
+<footer>
+
+    <div class="footer-main">
+
+        <div class="footer-brand">
+
+            <div class="footer-badge">
+                SDTC
+            </div>
+
+            <div>
+                <h3>SHREE DILSUKH TRANSPORT COMPANY</h3>
+                <p>Reliable • Fast • Safe Logistics</p>
+            </div>
+
         </div>
+
     </div>
 
-</section>
+    <div class="footer-bottom">
+        © 2026 Shree Dilsukh Transport Company. All Rights Reserved.
+    </div>
 
-    <!-- ================= FOOTER ================= -->
-    <footer>
-
-        <div class="footer-logo">
-            SDTC
-        </div>
-
-        <h3>SHREE DILSUKH TRANSPORT COMPANY</h3>
-
-        <p>Reliable • Fast • Safe Logistics</p>
-
-        <div class="footer-line"></div>
-
-        <p class="copyright">
-            © 2026 Shree Dilsukh Transport Company. All Rights Reserved.
-        </p>
-
-    </footer>
-
-
-    <!-- ================= WHATSAPP ================= -->
-    <a
-        href="https://wa.me/919251056539?text=Hello%20Shree%20Dilsukh%20Transport%2C%20I%20want%20to%20book%20a%20truck."
-        class="whatsapp-float"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        WhatsApp
-    </a>
-
-
-    <!-- ================= JAVASCRIPT ================= -->
+</footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener("DOMContentLoaded", function () {
 
-            /* Mobile menu */
-            const menuToggle = document.getElementById('menuToggle');
-            const navLinks = document.getElementById('mainNavLinks');
+            // Mobile navigation
+            const toggle = document.getElementById("menuToggle");
+            const links = document.getElementById("navLinks");
 
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function () {
-                    const isOpen = navLinks.classList.toggle('active');
-
-                    menuToggle.classList.toggle('active', isOpen);
-                    menuToggle.setAttribute('aria-expanded', String(isOpen));
+            if (toggle && links) {
+                toggle.addEventListener("click", function () {
+                    const open = links.classList.toggle("show");
+                    toggle.setAttribute("aria-expanded", String(open));
                 });
 
-                navLinks.querySelectorAll('a').forEach(function (link) {
-                    link.addEventListener('click', function () {
-                        navLinks.classList.remove('active');
-                        menuToggle.classList.remove('active');
-                        menuToggle.setAttribute('aria-expanded', 'false');
+                document.querySelectorAll(".nav-links a").forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        links.classList.remove("show");
+                        toggle.setAttribute("aria-expanded", "false");
                     });
                 });
             }
 
+            // Booking form submit without page refresh
+            const form = document.getElementById("bookingForm");
+            const popup = document.getElementById("successPopup");
+            const closePopup = document.getElementById("closePopup");
 
-            /* Smooth reveal */
-            const revealElements = document.querySelectorAll(
-                '.booking-section, .services-section, .about-section, .contact-section, .service-card'
-            );
+            if (form && popup) {
+                form.addEventListener("submit", async function (event) {
+                    event.preventDefault();
 
-            if ('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver(
-                    function (entries) {
-                        entries.forEach(function (entry) {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add('show');
-                                observer.unobserve(entry.target);
-                            }
-                        });
-                    },
-                    {
-                        threshold: 0.12
+                    const submitButton = form.querySelector(".submit-btn");
+                    const oldText = submitButton ? submitButton.textContent : "Request a Truck";
+
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = "Submitting...";
                     }
-                );
 
-                revealElements.forEach(function (element) {
-                    element.classList.add('reveal');
-                    observer.observe(element);
+                    try {
+                        const formData = new FormData(form);
+
+                        const response = await fetch(form.action, {
+                            method: "POST",
+                            body: formData
+                        });
+
+                        if (!response.ok) {
+                            throw new Error("Submission failed");
+                        }
+
+                        form.reset();
+                        popup.classList.add("show");
+
+                    } catch (error) {
+                        alert("Request submit nahi ho paayi. Please try again.");
+                    } finally {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = oldText;
+                        }
+                    }
                 });
             }
 
+            if (closePopup && popup) {
+                closePopup.addEventListener("click", function () {
+                    popup.classList.remove("show");
+                });
+
+                popup.addEventListener("click", function (event) {
+                    if (event.target === popup) {
+                        popup.classList.remove("show");
+                    }
+                });
+            }
         });
     </script>
 

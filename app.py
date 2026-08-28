@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import requests
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -21,9 +22,20 @@ def book():
     delivery = request.form.get("delivery")
     goods = request.form.get("goods")
     truck_type = request.form.get("truck_type")
-    required_date = request.form.get("required_date")
     weight = request.form.get("weight")
     message = request.form.get("message")
+
+    required_date = request.form.get("required_date")
+
+    # Convert YYYY-MM-DD to DD-MM-YYYY
+    if required_date:
+        try:
+            required_date = datetime.strptime(
+                required_date,
+                "%Y-%m-%d"
+            ).strftime("%d-%m-%Y")
+        except ValueError:
+            pass
 
     # Data to send to Google Apps Script
     booking_data = {
