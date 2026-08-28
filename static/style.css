@@ -1899,3 +1899,20 @@ footer {
         text-align: center;
     }
 }
+@media (max-width: 768px) {
+
+    .booking-form .form-group {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box;
+    }
+
+}
