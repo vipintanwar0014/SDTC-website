@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import requests
 from datetime import datetime
 
@@ -16,6 +16,7 @@ def home():
 @app.route("/book", methods=["POST"])
 def book():
 
+    # Get form data
     company_name = request.form.get("company_name")
     contact_person = request.form.get("contact_person")
     pickup = request.form.get("pickup")
@@ -34,6 +35,7 @@ def book():
                 required_date,
                 "%Y-%m-%d"
             ).strftime("%d-%m-%Y")
+
         except ValueError:
             pass
 
@@ -50,38 +52,62 @@ def book():
         "message": message
     }
 
-    # Print enquiry in VS Code terminal
+    # Print enquiry in terminal
     print("\n========== NEW TRUCK ENQUIRY ==========")
     print("Company Name:", company_name)
-    print("Contact Person:", contact_person)
+    print("Contact Number:", contact_person)
     print("Pickup Location:", pickup)
     print("Delivery Location:", delivery)
     print("Goods:", goods)
     print("Truck Type:", truck_type)
-    print("Required Date:", required_date)
     print("Approx Weight:", weight)
+    print("Required Date:", required_date)
     print("Message:", message)
     print("=======================================\n")
 
     # Send enquiry to Google Apps Script
     try:
+
         response = requests.post(
             GOOGLE_SCRIPT_URL,
             data=booking_data,
-            timeout=15
+            timeout=8
         )
 
         print("Google Script Status:", response.status_code)
         print("Google Script Response:", response.text)
 
+        # Google Sheet successfully received data
+        if response.ok:
+
+            return jsonify({
+                "success": True,
+                "message": "Your truck request has been submitted successfully."
+            })
+
+        # Google Script returned an error
+        return jsonify({
+            "success": False,
+            "message": "Unable to submit your request. Please try again."
+        }), 500
+
+    except requests.exceptions.Timeout:
+
+        print("Google Script Error: Request timed out")
+
+        return jsonify({
+            "success": False,
+            "message": "Request is taking too long. Please try again."
+        }), 504
+
     except requests.exceptions.RequestException as error:
+
         print("Google Script Error:", error)
 
-    return render_template(
-        "index.html",
-        success=True,
-        company_name=company_name
-    )
+        return jsonify({
+            "success": False,
+            "message": "Unable to submit your request. Please try again."
+        }), 500
 
 
 if __name__ == "__main__":
